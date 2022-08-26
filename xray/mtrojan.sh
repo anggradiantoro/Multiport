@@ -17,20 +17,20 @@ echo -e "  ═══════════════════════
 echo -e "   ${green}[ 0 ] EXIT TO MENU${NC} "
 echo -e "  ═══════════════════════════════════════════════" 
 echo -e "\e[1;31m"
-read -p "     Please select an option :  "  trojan
+read -p "     Please select an option :  "  mtrojan
 echo -e "\e[0m"
-case $trojan in
+case $mtrojan in
       1)
-      add-tr
+      addtrojan
       ;;
       2)
-      del-tr
+      deltrojan
       ;;
       3)
-      renew-tr
+      renewtrojan
       ;;
       4)
-      cek-tr
+      cektrojan
       ;;
       0)
       menu

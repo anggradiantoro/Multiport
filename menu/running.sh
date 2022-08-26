@@ -66,54 +66,7 @@ echo -e " DropBear                : "$green"running"$NC" ✓"
 else
 echo -e " DropBear                : "$red"not running (Error)"$NC" "
 fi
-status="$(systemctl show cdn-dropbear.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket SSH(HTTP)     : "$green"running"$NC" ✓"
-else
-echo -e " Websocket SSH(HTTP)     : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show cdn-ssl.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket SSL(HTTPS)    : "$green"running"$NC" ✓"
-else
-echo -e " Websocket SSL(HTTPS)    : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show cdn-ovpn.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket OpenVPN       : "$green"running"$NC" ✓"
-else
-echo -e " Websocket OpenVPN       : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohps.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-SSH                 : "$green"running"$NC" ✓"
-else
-echo -e " OHP-SSH                 : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohpd.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-Dropbear            : "$green"running"$NC" ✓"
-else
-echo -e " OHP-Dropbear            : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohp.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-OpenVPN             : "$green"running"$NC" ✓"
-else
-echo -e " OHP-OpenVPN             : "$red"not running (Error)"$NC" "
-fi
+
 echo -e ""
 echo -e "\e[1;33mSTATUS WS TLS:\e[0m"
 echo -e "\e[0;34m-------------\e[0m"

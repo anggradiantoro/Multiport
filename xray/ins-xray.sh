@@ -511,7 +511,7 @@ chmod +x renewtrojan
 chmod +x mxtrojan
 chmod +x mxvless
 chmod +x mxvmess
-
+chmod +x addtrojan
 cd
 
 

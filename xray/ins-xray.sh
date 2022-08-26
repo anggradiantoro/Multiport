@@ -493,8 +493,8 @@ wget -O renewtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/$
 
 # // Menu Xray
 wget -O mtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mtrojan.sh"
-wget -O mvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvless.sh"
-wget -O mvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvmess.sh"
+wget -O mxvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvless.sh"
+wget -O mxvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvmess.sh"
 
 
 chmod +x addvless
@@ -508,8 +508,8 @@ chmod +x renewvmess
 chmod +x deltrojan
 chmod +x cektrojan
 chmod +x renewtrojan
-chmod +x mtrojan
-chmod +x mvless
+chmod +x mxtrojan
+chmod +x mxvless
 chmod +x mxvmess
 
 cd

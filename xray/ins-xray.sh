@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+#wget https://github.com/${GitUser}/
+GitUser="RazVpn"
+Repo="Multiport"
+Dir="xray"
 RED='\033[0;31m'
 NC='\033[0m'
 GREEN='\033[0;32m'
@@ -468,32 +472,32 @@ systemctl enable xray.service
 
 # // Download
 cd /usr/local/bin
-wget -O trialxray "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/trialxray.sh"
+wget -O trialxray "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialxray.sh"
 
-wget -O addvless "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/addvless.sh"
-wget -O cekvless "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/cekvless.sh"
-wget -O delvless "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/delvless.sh"
-wget -O renewvless "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/renewvless.sh"
-wget -O trialvless "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/trialvless.sh"
+wget -O addvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addvless.sh"
+wget -O cekvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cekvless.sh"
+wget -O delvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/delvless.sh"
+wget -O renewvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewvless.sh"
+wget -O trialvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialvless.sh"
 
-wget -O addvmess "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/addvmess.sh"
-wget -O cekvmess "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/cekvmess.sh"
-wget -O delvmess "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/delvmess.sh"
-wget -O renewvmess "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/renewvmess.sh"
-wget -O trialvmess "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/trialvmess.sh"
+wget -O addvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addvmess.sh"
+wget -O cekvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cekvmess.sh"
+wget -O delvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/delvmess.sh"
+wget -O renewvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewvmess.sh"
+wget -O trialvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialvmess.sh"
 
-wget -O addtrojan "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/addtrojan.sh"
-wget -O cektrojan "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/cektrojan.sh"
-wget -O deltrojan "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/deltrojan.sh"
-wget -O renewtrojan "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/renewtrojan.sh"
-wget -O trialtrojan "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/trialtrojan.sh"
+wget -O addtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addtrojan.sh"
+wget -O cektrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cektrojan.sh"
+wget -O deltrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/deltrojan.sh"
+wget -O renewtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewtrojan.sh"
+wget -O trialtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialtrojan.sh"
 
 # // Menu Xray
-wget -O mxraynew "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/mxraynew.sh"
-wget -O mxraytrial "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/mxraytrial.sh"
-wget -O mxrayextend "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/mxrayextend.sh"
-wget -O mxraycek "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/mxraycek.sh"
-wget -O mxraydel "https://raw.githubusercontent.com/jinGGo007/MULTIPORT/main/XRAY/mxraydel.sh"
+wget -O mxraynew "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraynew.sh"
+wget -O mxraytrial "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraytrial.sh"
+wget -O mxrayextend "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxrayextend.sh"
+wget -O mxraycek "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraycek.sh"
+wget -O mxraydel "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraydel.sh"
 
 chmod +x trialxray
 chmod +x addvless

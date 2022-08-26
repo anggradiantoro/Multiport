@@ -17,20 +17,20 @@ echo -e " ═══════════════════════�
 echo -e "   ${green}[ 0 ] EXIT TO MENU${NC} "
 echo -e " ═════════════════════════════════════════════" 
 echo -e "\e[1;31m"
-read -p "    Please select an option :  "  mvmess
+read -p "    Please select an option :  "  mxvmess
 echo -e "\e[0m"
-case $mvmess in
+case $mxmess in
     1)
-    add-xvmess
+    addvmess
     ;;
     2)
-    del-xvmess
+    delvmess
     ;;
     3)
-    renew-xvmess
+    renewvmess
     ;;
     4)
-    cek-xvmess
+    cekvmess
     ;;
     0)
     menu

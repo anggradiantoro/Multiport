@@ -17,9 +17,9 @@ echo -e " ═══════════════════════�
 echo -e "   ${green}[ 0 ] EXIT TO MENU${NC} "
 echo -e " ═════════════════════════════════════════════" 
 echo -e "\e[1;31m"
-read -p "    Please select an option :  "  v2ray
+read -p "    Please select an option :  "  mvmess
 echo -e "\e[0m"
-case $v2ray in
+case $mvmess in
     1)
     add-xvmess
     ;;

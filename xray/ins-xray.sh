@@ -10,6 +10,8 @@ GREEN='\033[0;32m'
 # ==================================================
 
 # // Install 
+sudo apt-get update
+sudo apt-get -y install socat
 domain=$(cat /etc/xray/domain)
 apt-get install netfilter-persistent -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 

@@ -472,54 +472,44 @@ systemctl enable xray.service
 
 # // Download
 cd /usr/local/bin
-wget -O trialxray "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialxray.sh"
 
-wget -O addvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addvless.sh"
-wget -O cekvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cekvless.sh"
-wget -O delvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/delvless.sh"
-wget -O renewvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewvless.sh"
-wget -O trialvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialvless.sh"
+wget -O addvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/add-xvless.sh"
+wget -O cekvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cek-xvless.sh"
+wget -O delvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/del-xvless.sh"
+wget -O renewvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renew-xvless.sh"
 
-wget -O addvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addvmess.sh"
-wget -O cekvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cekvmess.sh"
-wget -O delvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/delvmess.sh"
-wget -O renewvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewvmess.sh"
-wget -O trialvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialvmess.sh"
+wget -O addvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/add-xvmess.sh"
+wget -O cekvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cekv-xmess.sh"
+wget -O delvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/del-xvmess.sh"
+wget -O renewvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renew-xvmess.sh"
 
-wget -O addtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/addtrojan.sh"
-wget -O cektrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cektrojan.sh"
-wget -O deltrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/deltrojan.sh"
-wget -O renewtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renewtrojan.sh"
-wget -O trialtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/trialtrojan.sh"
+wget -O addtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/add-tr.sh"
+wget -O cektrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cek-tr.sh"
+wget -O deltrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/del-tr.sh"
+wget -O renewtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/renew-tr.sh"
+
 
 # // Menu Xray
-wget -O mxraynew "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraynew.sh"
-wget -O mxraytrial "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraytrial.sh"
-wget -O mxrayextend "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxrayextend.sh"
-wget -O mxraycek "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraycek.sh"
-wget -O mxraydel "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxraydel.sh"
+wget -O mtrojan "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mtrojan.sh"
+wget -O mvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvless.sh"
+wget -O mvmess "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/mxvmess.sh"
 
-chmod +x trialxray
+
 chmod +x addvless
 chmod +x delvless
 chmod +x cekvless
 chmod +x renewvless
-chmod +x trialvless
 chmod +x addvmess
 chmod +x delvmess
 chmod +x cekvmess
 chmod +x renewvmess
-chmod +x trialvmess
-chmod +x addtrojan
 chmod +x deltrojan
 chmod +x cektrojan
 chmod +x renewtrojan
-chmod +x trialtrojan
-chmod +x mxraynew
-chmod +x mxraytrial
-chmod +x mxrayextend
-chmod +x mxraycek
-chmod +x mxraydel
+chmod +x mtrojan
+chmod +x mvless
+chmod +x mxvmess
+
 cd
 
 

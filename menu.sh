@@ -45,7 +45,7 @@ echo -e  " ═══════════════════════
 echo -e  " [  1 ] SSH & OPENVPN" 
 echo -e  " [  2 ] vless CORE" 
 echo -e  " [  3 ] vmess GFW"  
-echo -e  " [. 4 ] trojan
+echo -e  " [. 4 ] trojan"
 echo -e  "  "
 echo -e  " ═════════════════════════════════════════════════════════════════ "
 echo -e  " ${green}SYSTEM MENU${NC} "       

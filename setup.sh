@@ -159,10 +159,10 @@ echo ""  | tee -a log-install.txt
 echo "   - XRAY VMESS NON TLS      : 80"  | tee -a log-install.txt
 echo "   - XRAY VLESS NON TLS      : 80"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   - XRAY VLESS WS TLS          : 443"  | tee -a log-install.txt
-echo "   - XRAY VMESS WS TLS          : 443"  | tee -a log-install.txt
-echo "   - XRAY TROJAN WS TLS                 : 443"  | tee -a log-install.txt
-echo "   - XRAY TROJAN GRPC                : 443"  | tee -a log-install.txt
+echo "   - XRAY VLESS WS TLS       : 443"  | tee -a log-install.txt
+echo "   - XRAY VMESS WS TLS       : 443"  | tee -a log-install.txt
+echo "   - XRAY TROJAN WS TLS      : 443"  | tee -a log-install.txt
+echo "   - XRAY TROJAN GRPC        : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS GRPC         : 443"  | tee -a log-install.txt
 echo "   - XRAY VMESS GRPC         : 443"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt

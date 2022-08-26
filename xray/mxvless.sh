@@ -21,18 +21,18 @@ echo -e " ═══════════════════════�
 echo -e "\e[1;31m"
 read -p "     Please select an option :  "  vless
 echo -e "\e[0m"
-case $vless in
+case $mxvless in
       1)
-      add-xvless
+      addvless
       ;;
       2)
-      del-xvless
+      delvless
       ;;
       3)
-      renew-xvless
+      renewvless
       ;;
       4)
-      cek-xvless
+      cekvless
       ;;
       0)
       menu

@@ -74,45 +74,48 @@ echo -e "\e[0m"
    mssh
    ;;
    2)
-   mxraycore
+   mxvless
    ;;
    3)
-   mtrojan
+   mxvmess
    ;;
    4)
-   add-host
+   mtrojan
    ;;
    5)
-   change
+   add-host
    ;;
    6)
-   mdns
+   change
    ;;
    7)
-   recert-xrayv2ray
+   mdns
    ;;
    8)
-   wbmn
+   recert-xrayv2ray
    ;;
    9)
-   ram
+   wbmn
    ;;
    10)
-   reboot
+   ram
    ;;
    11)
-   speedtest
+   reboot
    ;;
    12)
-   info
+   speedtest
    ;;
    13)
-   nf
+   info
    ;;
    14)
-   checksystem  
+   nf
    ;;
    15)
+   checksystem  
+   ;;
+   16)
    update  
    ;;   
    0)

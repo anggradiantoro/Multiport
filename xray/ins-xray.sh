@@ -473,7 +473,7 @@ systemctl restart xray.service
 systemctl enable xray.service
 
 # // Download
-cd /usr/local/bin
+cd /usr/bin
 
 wget -O addvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/add-xvless.sh"
 wget -O cekvless "https://raw.githubusercontent.com/${GitUser}/${Repo}/main/${dir}/cek-xvless.sh"

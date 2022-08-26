@@ -1,231 +1,182 @@
 #!/bin/bash
-red="\e[1;31m"
-green="\e[0;32m"
-NC="\e[0m"
+# Welcome Information
+# Edition : Stable Edition V1.0
+# Auther  : ADIT ARDIANSYAH
+# (C) Copyright 2021-2022 By Geo Project
+# =========================================
+
+# // Exporting Language to UTF-8
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
+export LANGUAGE='en_US.UTF-8'
+export LC_CTYPE='en_US.utf8'
+
+# // Export Color & Information
+export RED='\033[0;31m'
+export GREEN='\033[0;32m'
+export YELLOW='\033[0;33m'
+export BLUE='\033[0;34m'
+export PURPLE='\033[0;35m'
+export CYAN='\033[0;36m'
+export LIGHT='\033[0;37m'
+export NC='\033[0m'
+
+# // Export Banner Status Information
+export EROR="[${RED} EROR ${NC}]"
+export INFO="[${YELLOW} INFO ${NC}]"
+export OKEY="[${GREEN} OKEY ${NC}]"
+export PENDING="[${YELLOW} PENDING ${NC}]"
+export SEND="[${YELLOW} SEND ${NC}]"
+export RECEIVE="[${YELLOW} RECEIVE ${NC}]"
+
+# // Export Align
+export BOLD="\e[1m"
+export WARNING="${RED}\e[5m"
+export UNDERLINE="\e[4m"
+
+# // Exporting URL Host
+#export Server_URL="autosc.me/aio"
+export Server_Port="443"
+export Server_IP="underfined"
+export Script_Mode="Stable"
+export Auther="Geo"
+export RED_BG='\e[41m'
+
+# // Exporting IP Address
+export IP=$( curl -s https://ipinfo.io/ip/ )
+
+freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
+	tram=$( free -m | awk 'NR==2 {print $2}' )
+	swap=$( free -m | awk 'NR==4 {print $2}' )
+
+function os_detail () {
+    OS_Name="$( cat /etc/os-release | grep -w ID | head -n1 | sed 's/ID//g' | sed 's/=//g' )"
+    OS_FName="$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' | sed 's/,//g'  )"
+    OS_Version="$( cat /etc/os-release | grep -w VERSION | head -n1 | sed 's/VERSION//g' | sed 's/=//g' | sed 's/"//g' )"
+    OS_Version_ID="$( cat /etc/os-release | grep -w VERSION_ID | head -n1 | sed 's/VERSION_ID//g' | sed 's/=//g' | sed 's/"//g' )"
+    OS_Arch="$( uname -m )"
+    OS_Kernel="$( uname -r )"
+}
+MYIP=$(curl -sS ipv4.icanhazip.com)
+#########################
+# GETTING INFORMATION
+# =========================================================================================================
+# // OpenSSH
+openssh=$( systemctl status ssh | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $openssh == "running" ]]; then
+    status_openssh="${GREEN}Running${NC} ( No Eror )"
+else
+    status_openssh="${RED}No Running${NC} ( Eror )"
+fi
+
+# // Stunnel5
+stunnel5=$( systemctl status stunnel4 | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $stunnel5 == "running" ]]; then
+    status_stunnel5="${GREEN}Running${NC} ( No Eror )"
+else
+    status_stunnel5="${RED}No Running${NC} ( Eror )"
+fi
+
+# // Dropbear
+dropbear=$( systemctl status dropbear | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $dropbear == "running" ]]; then
+    status_dropbear="${GREEN}Running${NC} ( No Eror )"
+else
+    status_dropbear="${RED}No Running${NC} ( Eror )"
+fi
+
+# // Squid
+squid=$( systemctl status squid | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $squid == "running" ]]; then
+    status_squid="${GREEN}Running${NC} ( No Eror )"
+else
+    status_squid="${RED}No Running${NC} ( Eror )"
+fi
+
+# // SSH Websocket Proxy
+ssh_ws=$( systemctl status ws-nontls | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ssh_ws == "running" ]]; then
+    status_ws_epro="${GREEN}Running${NC} ( No Eror )"
+else
+    status_ws_epro="${RED}No Running${NC} ( Eror )"
+fi
+
+# // Trojan Proxy
+ss=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ss == "running" ]]; then
+    status_ss="${GREEN}Running${NC} ( No Eror )"
+else
+    status_ss="${RED}No Running${NC} ( Eror )"
+fi
+
+# // NGINX
+nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+    status_nginx="${GREEN}Running${NC} ( No Eror )"
+else
+    status_nginx="${RED}No Running${NC} ( Eror )"
+fi
+
+# =========================================================================================================
+
+# // Running Function Requirement
+os_detail
+script_version
+license_check
+
+if [[ $Bot == "1" ]]; then
+        bot='Allowed'
+else
+        bot='Not Allowed'
+fi
+
+if [[ $Beta == "1" ]]; then
+        beta='Allowed'
+else
+        beta='Not Allowed'
+fi
+
+if [[ $Backup == "1" ]]; then
+        backup='Allowed'
+else
+        backup='Not Allowed'
+fi
+
+# // Clear
 clear
-GitUser="RazVpn"
-# VPS Information
-Checkstart1=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1);
-if [[ $Checkstart1 == "venet0" ]]; then 
-    clear
-	  lan_net="venet0"
-    typevps="OpenVZ"
-    sleep 1
-else
-    clear
-		lan_net="eth0"
-    typevps="KVM"
-    sleep 1
-fi
-MYIP=$(wget -qO- icanhazip.com);
-echo -e "\e[32mloading...\e[0m"
-clear
+clear && clear && clear
+clear;clear;clear
+
+echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo -e "                ${YELLOW}(${NC}${GREEN} STATUS SERVICE INFORMATION ${NC}${YELLOW})${NC}"
+echo -e "         OWNER : ${GREEN}ADIT ARDIANSYAH ${NC}${YELLOW}(${NC} ${GREEN}Geo Project ${NC}${YELLOW})${NC}"
+echo -e "       © Copyright Geo Project ${YELLOW}(${NC} 2021-2022 ${YELLOW})${NC}"
+echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo ""
+echo -e "${RED_BG}                     Sytem Information                    ${NC}"
+echo -e "Sever Uptime        = $( uptime -p  | cut -d " " -f 2-10000 ) "
+echo -e "Current Time        = $( date -d "0 days" +"%d-%m-%Y | %X" )"
+echo -e "Script Version      = 3.1"
+echo -e "Operating System    = ${OS_FName} ( ${OS_Arch} )"
+echo -e "Total Amount RAM    = $tram MB"
+echo -e "Current Domain      = $( cat /etc/xray/domain )"
+echo -e "Server IP           = ${IP}"
+echo -e "Client Name         = $Name"
+echo -e "Exp Script          = $geo"
+echo ""
+echo -e "${RED_BG}                     Service Information                  ${NC}"
 echo -e ""
-echo -e "              \e[0;32m[\e[1;36mSYSTEM STATUS INFORMATION\e[0;32m]\e[0m"
-echo -e "             \e[0;34m=============================\e[0m"
+echo -e "OpenSSH             = $status_openssh"
+echo -e "Dropbear            = $status_dropbear"
+echo -e "Stunnel4            = $status_stunnel5"
+echo -e "Squid               = $status_squid"
+echo -e "NGINX               = $status_nginx"
+echo -e "SSH NonTLS          = $status_ws_epro"
+echo -e "SSH TLS             = $status_ws_epro"
+echo -e "Vmess WS/GRPC       = $status_ss"
+echo -e "Vless WS/GRPC       = $status_ss"
+echo -e "Trojan WS/GRPC      = $status_ss"
 echo -e ""
-echo -e "\e[1;33mSTATUS SSH & OPEN VPN:\e[0m"
-echo -e "\e[0;34m-----------------------\e[0m"
-status="$(systemctl show ssh.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Open SSH                : "$green"running"$NC" ✓"
-else
-echo -e " Open SSH                : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show --now openvpn-server@server-tcp-1194 --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OpenVPN TCP             : "$green"running"$NC" ✓"
-else
-echo -e " OpenVPN TCP             : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show --now openvpn-server@server-udp-2200 --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OpenVPN UDP             : "$green"running"$NC" ✓"
-else
-echo -e " OpenVPN UDP             : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show stunnel4.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Stunnel(SSL)            : "$green"running"$NC" ✓"
-else
-echo -e " Stunnel(SSL)            : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show dropbear.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " DropBear                : "$green"running"$NC" ✓"
-else
-echo -e " DropBear                : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show cdn-dropbear.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket SSH(HTTP)     : "$green"running"$NC" ✓"
-else
-echo -e " Websocket SSH(HTTP)     : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show cdn-ssl.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket SSL(HTTPS)    : "$green"running"$NC" ✓"
-else
-echo -e " Websocket SSL(HTTPS)    : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show cdn-ovpn.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Websocket OpenVPN       : "$green"running"$NC" ✓"
-else
-echo -e " Websocket OpenVPN       : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohps.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-SSH                 : "$green"running"$NC" ✓"
-else
-echo -e " OHP-SSH                 : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohpd.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-Dropbear            : "$green"running"$NC" ✓"
-else
-echo -e " OHP-Dropbear            : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show ohp.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " OHP-OpenVPN             : "$green"running"$NC" ✓"
-else
-echo -e " OHP-OpenVPN             : "$red"not running (Error)"$NC" "
-fi
-echo -e ""
-echo -e "\e[1;33mSTATUS XRAY:\e[0m"
-echo -e "\e[0;34m-------------\e[0m"
-status="$(systemctl show xray.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Vmess Ws Tls       : "$green"running"$NC" ✓"
-else
-echo -e " Xray Vmess Ws Tls       : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show xray@none.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Vmess Ws None Tls  : "$green"running"$NC" ✓"
-else
-echo -e " Xray Vmess Ws None Tls  : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show xray.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Vless Ws Tls       : "$green"running"$NC" ✓"
-else
-echo -e " Xray Vless Ws Tls       : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show xray@none.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Vless Ws None Tls  : "$green"running"$NC" ✓"
-else
-echo -e " Xray Vless Ws None Tls  : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show xray@vless-grpc --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ] 
-then
-echo -e " Xray Vless Grpc    : "$green"running"$NC" ✓"
-else
-echo -e " Xray Vless Grpc       : "$red"not running (Error)"$NC" "
-fi
-echo -e ""
-echo -e "\e[1;33mSTATUS TROJAN :\e[0m"
-echo -e "\e[0;34m-----------------\e[0m"
-status="$(systemctl show xray.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Trojan        : "$green"running"$NC" ✓"
-else
-echo -e " Xray Trojan        : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show trojan-go.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Xray Trojan               : "$green"running"$NC" ✓"
-else
-echo -e " Xray Trojan               : "$red"not running (Error)"$NC" "
-fi
-echo -e ""
-echo -e "\e[1;33mSTATUS SHADOWSOCK:\e[0m"
-echo -e "\e[0;34m-------------------\e[0m"
-status="$(systemctl show ssrmu --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " ShadowsockR             : "$green"running"$NC" ✓"
-else
-echo -e " ShadowsockR             : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show shadowsocks-libev.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Shadowsocks             : "$green"running"$NC" ✓"
-else
-echo -e " Shadowsocks             : "$red"not running (Error)"$NC" "
-fi
-echo -e ""
-echo -e "\e[1;33mSTATUS WIREGUARD:\e[0m"
-echo -e "\e[0;34m------------------\e[0m"
-status="$(systemctl show wg-quick@wg0 --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Wireguard               : "$green"running"$NC" ✓"
-else
-echo -e " Wireguard               : "$red"not running (Error)"$NC" "
-fi
-echo -e ""
-echo -e "\e[1;33mSTATUS NGIX & SQUID:\e[0m"
-echo -e "\e[0;34m--------------------\e[0m"
-status="$(systemctl show nginx.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Nginx                   : "$green"running"$NC" ✓"
-else
-echo -e " Nginx                   : "$red"not running (Error)"$NC" "
-fi
-status="$(systemctl show squid.service --no-page)"
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
-if [ "${status_text}" == "active" ]
-then
-echo -e " Squid                   : "$green"running"$NC" ✓"
-else
-echo -e " Squid                   : "$red"not running (Error)"$NC" "
-fi
-echo -e "\e[0;34m-----------------------------------------------------------\e[0m"
-echo -e ""
-echo -e "${green}JIKA TERDAPAT NOT RUNNING, PLEASE REPORT TO ADMIN FOR FIX$NC"
-echo -e "${green}Report to Ichikaa @Ichikaa1$NC"
+echo -e "${RED_BG}                         Geo Project                      ${NC}"
+echo ""
+echo -e "${GREEN}Please Type Menu${NC}"

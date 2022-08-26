@@ -115,7 +115,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING SSH && OVPN && WS ${NC}"
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/${GitUser}/${Repo}/main/V1/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/${GitUser}/${Repo}/main/ovpn/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 sleep 2
 clear
 
@@ -124,7 +124,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING XRAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/${GitUser}/${Repo}/main/V1/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
+wget https://raw.githubusercontent.com/${GitUser}/${Repo}/main/xray/ins-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
 sleep 2
 clear
 
